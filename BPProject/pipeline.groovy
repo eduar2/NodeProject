@@ -4,7 +4,7 @@ node {
     }
 
     stage('Build') {
-        sh '''
+        sh """
             if [  "$(docker ps -q -f name=devops-container1" ]; then
                             docker rm -f devops-container1
             fi
@@ -16,11 +16,11 @@ node {
             fi
             
             docker-compose up -d --build
-        '''
+        """
     }
   
     stage('End ') {
-        ssh " echo 'Succesfull execution)'"
+        echo "Succesfull execution"
     }
 
 } 
