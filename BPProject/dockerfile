@@ -1,0 +1,13 @@
+FROM node:10
+
+RUN mkdir -p /applicationDirectory
+
+WORKDIR /applicationDirectory
+
+COPY . .
+
+RUN npm install --save
+
+CMD ["node", "server.js"]
+
+EXPOSE 3000

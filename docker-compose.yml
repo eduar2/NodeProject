@@ -1,0 +1,33 @@
+version: '2'
+services:
+  bpProject1:
+    build: ./BPProject
+    image: image:1.0
+    tty: true
+    container_name: devops-container1
+    volumes:
+      - './BPProject/src:/dir-inside-container'
+    # ports:
+    #   - "8001:8001"
+
+  bpProject2:
+    build: ./BPProject
+    image: image:1.0
+    tty: true
+    container_name: devops-container2
+    volumes:
+      - './BPProject/src:/backend-dir-inside-container'
+    # ports:
+    #   - "8002:8002"
+  nginx:
+      build: ./nginx
+      image: nginx-image:1.0
+      tty: true
+      ports:
+        - "8080:8080"
+      links:
+          - bpProject1
+          - bpProject2
+
+volumes: 
+  BPProject:
