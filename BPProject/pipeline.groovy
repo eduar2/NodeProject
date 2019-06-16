@@ -1,6 +1,6 @@
 node {
-  stage('HelloWorld') {
-    echo 'Hello World'
+  stage('GitCheckout') {
+    checkout scm
   }
 
 } 
