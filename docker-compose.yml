@@ -23,6 +23,7 @@ services:
       build: ./nginx
       image: nginx-image:1.0
       tty: true
+      container-name: balancer
       ports:
         - "8080:8080"
       links:
