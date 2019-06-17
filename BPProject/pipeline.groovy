@@ -1,5 +1,5 @@
 pipeline {
-	agent { label 'docker' }
+
 	stages {
         stage('GitCheckout') {
             steps{
